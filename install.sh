@@ -22,6 +22,27 @@ sudo -v
 while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 
 ###############################################################################
+# Standard directories                                                        #
+###############################################################################
+
+echo "> Creating standard directories..."
+mkdir -p "${HOME}/companies"
+mkdir -p "${HOME}/projects"
+mkdir -p "${HOME}/sandbox"
+mkdir -p "${HOME}/scripts"
+
+###############################################################################
+# z frecent algo                                                              #
+###############################################################################
+
+if test ! $(which z); then
+  echo "> Installing z..."
+  curl -o "${HOME}/scripts/z.sh" https://raw.githubusercontent.com/rupa/z/master/z.sh
+else
+  echo "> z already exists, skipping..."
+fi
+
+###############################################################################
 # Oh My Zsh                                                                   #
 ###############################################################################
 
@@ -62,21 +83,17 @@ brew bundle
 rm Brewfile.lock.json
 
 ###############################################################################
-# Standard directories                                                        #
-###############################################################################
-
-echo "> Creating standard directories..."
-mkdir -p "${HOME}/companies"
-mkdir -p "${HOME}/projects"
-mkdir -p "${HOME}/sandbox"
-mkdir -p "${HOME}/scripts"
-
-###############################################################################
 # Mac OSX system preferences                                                  #
 ###############################################################################
 
 echo "> Setting Mac OSX system preferences..."
 sh system-preferences.sh
+
+###############################################################################
+# git and GitHub                                                              #
+###############################################################################
+
+
 
 ###############################################################################
 # Finish                                                                      #

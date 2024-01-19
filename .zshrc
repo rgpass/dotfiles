@@ -10,7 +10,7 @@ eval "$(/opt/homebrew/bin/brew shellenv)"
 ##########
 # z -- frecent algorithm for navigating directories
 ##########
-. /Users/gpass/z.sh
+. /Users/gpass/scripts/z.sh
 
 ##########
 # ZSh
