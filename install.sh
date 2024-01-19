@@ -77,3 +77,9 @@ mkdir -p "${HOME}/scripts"
 
 echo "> Setting Mac OSX system preferences..."
 sh system-preferences.sh
+
+###############################################################################
+# Finish                                                                      #
+###############################################################################
+
+echo "> Done!"
