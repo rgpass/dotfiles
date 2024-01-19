@@ -93,7 +93,10 @@ sh system-preferences.sh
 # git and GitHub                                                              #
 ###############################################################################
 
+echo "> Symlinking .gitconfig..."
+ln -s ".gitconfig" "${HOME}/.gitconfig"
 
+# TODO: Add steps for GitHub configuration
 
 ###############################################################################
 # Finish                                                                      #

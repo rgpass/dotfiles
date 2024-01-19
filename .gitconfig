@@ -1,0 +1,5 @@
+[user]
+        name = Gerry Pass
+        email = rgpass@gmail.com
+[core]
+        editor = subl -n -w
