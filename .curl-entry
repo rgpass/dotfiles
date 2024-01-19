@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+
+# Create and move into a projects directory
+mkdir -p "${HOME}/projects"
+cd "${HOME}/projects"
+
+# Clone the project
+git clone https://github.com/rgpass/dotfiles.git
+
+# Move into the project directory
+cd dotfiles
+
+# Run the install script
+sh .main
