@@ -105,8 +105,13 @@ else
   ln -s ".gitconfig" "${HOME}/.gitconfig"
 fi
 
-echo "> Logging into GitHub..."
-gh auth login
+# Check if logged into GitHub
+if gh auth status | grep -q "Logged in to github.com"; then
+  echo "> Already logged into GitHub, skipping..."
+else
+  echo "> Not logged into GitHub, logging in..."
+  gh auth login
+fi
 
 ###############################################################################
 # Finish                                                                      #
