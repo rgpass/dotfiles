@@ -7,15 +7,13 @@
 # Install Xcode                                                               #
 ###############################################################################
 
-# If Xcode is installed, skip
-# Otherwise, prompt the user that they will need to recurl after installing it
-if test ! $(xcode-select -p); then
-  echo "> Xcode not installed, please install it and rerun this script..."
-  echo "The command to run is \`xcode-select --install\`"
-  exit 1
-else
-  echo "> Xcode already installed, skipping..."
-fi
+echo "> Installing Xcode (which installs git)..."
+xcode-select --install
+
+###############################################################################
+# Install Xcode                                                               #
+###############################################################################
+
 
 # Create and move into a scripts directory
 echo "> Make scripts directory and moving in..."
