@@ -9,7 +9,7 @@
 
 # If Xcode is installed, skip
 # Otherwise, prompt the user that they will need to recurl after installing it
-if test ! $(which xcode-select); then
+if test ! $(xcode-select -p); then
   echo "> Xcode not installed, please install it and rerun this script..."
   echo "The command to run is \`xcode-select --install\`"
   exit 1
