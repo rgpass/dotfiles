@@ -16,8 +16,8 @@ defaults -currentHost write com.apple.controlcenter.plist Bluetooth -int 18
 # Dock, Dashboard, and hot corners                                            #
 ###############################################################################
 
-# Set the icon size of Dock items to 16 pixels
-defaults write com.apple.dock tilesize -int 16
+# Set the icon size of Dock items to 64 pixels
+defaults write com.apple.dock tilesize -int 64
 
 # Show only open applications in the Dock
 defaults write com.apple.dock static-only -bool true
