@@ -22,23 +22,6 @@ sudo -v
 while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 
 ###############################################################################
-# Install Xcode                                                               #
-###############################################################################
-
-# If Xcode is installed, skip
-# Otherwise, prompt the user that they will need to recurl after installing it
-if test ! $(which xcode-select); then
-  echo "> Xcode not installed, please install it and rerun this script..."
-  echo "The command to run is \`xcode-select --install\`"
-  exit 1
-else
-  echo "> Xcode already installed, skipping..."
-fi
-
-echo "> Installing Xcode..."
-xcode-select --install
-
-###############################################################################
 # Standard directories                                                        #
 ###############################################################################
 
