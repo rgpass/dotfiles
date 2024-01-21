@@ -59,6 +59,7 @@ if [ -f "${HOME}/.zshrc" ]; then
   echo "> .zshrc already exists, skipping..."
 else
   echo "> Symlinking .zshrc..."
+  unlink "${HOME}/.zshrc"
   ln -s ".zshrc" "${HOME}/.zshrc"
 fi
 
@@ -100,6 +101,7 @@ if [ -f "${HOME}/.gitconfig" ]; then
   echo "> .gitconfig already exists, skipping..."
 else
   echo "> Symlinking .gitconfig..."
+  unlink "${HOME}/.gitconfig"
   ln -s ".gitconfig" "${HOME}/.gitconfig"
 fi
 
