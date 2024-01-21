@@ -4,6 +4,7 @@
 # $ curl https://raw.githubusercontent.com/rgpass/dotfiles/master/curl-entry.sh | bash
 
 # Create and move into a scripts directory
+echo "> Make scripts directory and moving in..."
 mkdir -p "${HOME}/scripts"
 cd "${HOME}/scripts"
 
@@ -15,7 +16,7 @@ if [ -d "${HOME}/scripts/dotfiles" ]; then
   cd dotfiles
   git pull
 else
-  echo "> Cloning dotfiles..."
+  echo "> Cloning dotfiles into ${PWD}..."
   git clone https://github.com/rgpass/dotfiles.git
   cd dotfiles
 fi
