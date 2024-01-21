@@ -9,6 +9,9 @@ defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad Clicking -bool
 defaults -currentHost write NSGlobalDomain com.apple.mouse.tapBehavior -int 1
 defaults write NSGlobalDomain com.apple.mouse.tapBehavior -int 1
 
+# Show Bluetooth in menu bar
+defaults -currentHost write com.apple.controlcenter.plist Bluetooth -int 18
+
 ###############################################################################
 # Dock, Dashboard, and hot corners                                            #
 ###############################################################################
