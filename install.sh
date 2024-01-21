@@ -93,8 +93,13 @@ sh system-preferences.sh
 # git and GitHub                                                              #
 ###############################################################################
 
-echo "> Symlinking .gitconfig..."
-ln -s ".gitconfig" "${HOME}/.gitconfig"
+# Symlinking .gitconfig
+if [ -f "${HOME}/.gitconfig" ]; then
+  echo "> .gitconfig already exists, skipping..."
+else
+  echo "> Symlinking .gitconfig..."
+  ln -s ".gitconfig" "${HOME}/.gitconfig"
+fi
 
 echo "> Logging into GitHub..."
 gh auth login

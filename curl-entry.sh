@@ -8,10 +8,17 @@ mkdir -p "${HOME}/scripts"
 cd "${HOME}/scripts"
 
 # Clone the project
-git clone https://github.com/rgpass/dotfiles.git
-
-# Move into the project directory
-cd dotfiles
+# If dotfiles directory exists, cd into it and git pull
+# Otherwise, clone the project
+if [ -d "${HOME}/scripts/dotfiles" ]; then
+  echo "> dotfiles already exists, updating..."
+  cd dotfiles
+  git pull
+else
+  echo "> Cloning dotfiles..."
+  git clone https://github.com/rgpass/dotfiles.git
+  cd dotfiles
+end
 
 # Run the install script
 sh install.sh
