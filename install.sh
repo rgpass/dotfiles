@@ -96,7 +96,8 @@ sh system-preferences.sh
 echo "> Symlinking .gitconfig..."
 ln -s ".gitconfig" "${HOME}/.gitconfig"
 
-# TODO: Add steps for GitHub configuration
+echo "> Logging into GitHub..."
+gh auth login
 
 ###############################################################################
 # Finish                                                                      #
