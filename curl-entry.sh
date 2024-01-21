@@ -8,6 +8,7 @@
 ###############################################################################
 
 echo "> Installing Xcode (which installs git)..."
+echo "> If the script fails, rerun after Xcode is installed"
 xcode-select --install
 
 ###############################################################################
