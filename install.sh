@@ -21,6 +21,8 @@ sudo -v
 # Keep-alive: update existing `sudo` time stamp until `.macos` has finished
 while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 
+DOTFILES_ROOT="${HOME}/scripts/dotfiles"
+
 ###############################################################################
 # Standard directories                                                        #
 ###############################################################################
@@ -59,8 +61,7 @@ if [ -f "${HOME}/.zshrc" ]; then
   echo "> .zshrc already exists, skipping..."
 else
   echo "> Symlinking .zshrc..."
-  unlink "${HOME}/.zshrc"
-  ln -s ".zshrc" "${HOME}/.zshrc"
+  ln -s "${DOTFILES_ROOT}/.zshrc" "${HOME}/.zshrc"
 fi
 
 ###############################################################################
@@ -101,8 +102,7 @@ if [ -f "${HOME}/.gitconfig" ]; then
   echo "> .gitconfig already exists, skipping..."
 else
   echo "> Symlinking .gitconfig..."
-  unlink "${HOME}/.gitconfig"
-  ln -s ".gitconfig" "${HOME}/.gitconfig"
+  ln -s "${DOTFILES_ROOT}/.gitconfig" "${HOME}/.gitconfig"
 fi
 
 # Check if logged into GitHub
