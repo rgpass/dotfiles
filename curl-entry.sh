@@ -18,7 +18,7 @@ else
   echo "> Cloning dotfiles..."
   git clone https://github.com/rgpass/dotfiles.git
   cd dotfiles
-end
+fi
 
 # Run the install script
 sh install.sh
