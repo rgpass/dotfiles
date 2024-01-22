@@ -50,10 +50,10 @@ fi
 
 # Install Oh My Zsh if needed
 if [ -d "${HOME}/.oh-my-zsh" ]; then
+  echo "> Oh My Zsh already installed, skipping..."
+else
   echo "> Installing Oh My Zsh..."
   sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-else
-  echo "> Oh My Zsh already installed, skipping..."
 fi
 
 # Symlinking .zshrc
