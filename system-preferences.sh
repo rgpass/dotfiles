@@ -86,6 +86,12 @@ echo "> Some Mac OSX preferences must be set manually. Follow these steps..."
 
 echo "> System Preferences > Displays > Refresh rate > 60 Hertz"
 
+echo "> Steps to set up Raycast:"
+echo "> 1. Open Spotlight (Cmd+Space) and open Raycast"
+echo "> 2. Follow setup wizard"
+echo "> 3. System Preferences > Keyboard > Shortcuts > Spotlight > uncheck both"
+echo "> 4. Raycast (click icon in menu bar) > Settings > Raycast Hotkey > Cmd+Space"
+
 ###############################################################################
 # Kill affected applications                                                  #
 ###############################################################################
