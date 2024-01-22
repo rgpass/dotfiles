@@ -85,6 +85,7 @@ open -a "Arc" --args --make-default-browser
 echo "> Some Mac OSX preferences must be set manually. Follow these steps..."
 
 echo "> System Preferences > Displays > Refresh rate > 60 Hertz"
+echo "> System Preferences > Notifications > Messages > Show previews > Never"
 
 ###############################################################################
 # Raycast                                                                     #
