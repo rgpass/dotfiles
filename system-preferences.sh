@@ -1,6 +1,13 @@
 #!/usr/bin/env bash
 
 ###############################################################################
+# General UI/UX                                                               #
+###############################################################################
+
+# Disable the “Are you sure you want to open this application?” dialog
+defaults write com.apple.LaunchServices LSQuarantine -bool false
+
+###############################################################################
 # Trackpad, mouse, keyboard, Bluetooth accessories, and input                 #
 ###############################################################################
 
@@ -11,6 +18,17 @@ defaults write NSGlobalDomain com.apple.mouse.tapBehavior -int 1
 
 # Show Bluetooth in menu bar
 defaults -currentHost write com.apple.controlcenter.plist Bluetooth -int 18
+
+###############################################################################
+# Finder                                                                      #
+###############################################################################
+
+# Use column view in all Finder windows by default
+# Four-letter codes for the other view modes: `icnv`, `clmv`, `Flwv`, `Nlsv`
+defaults write com.apple.finder FXPreferredViewStyle -string "clmv"
+
+# Disable the warning before emptying the Trash
+defaults write com.apple.finder WarnOnEmptyTrash -bool false
 
 ###############################################################################
 # Dock, Dashboard, and hot corners                                            #
@@ -59,6 +77,14 @@ defaults write com.apple.commerce AutoUpdateRestartRequired -bool false
 
 # Set default browser to Arc
 open -a "Arc" --args --make-default-browser
+
+###############################################################################
+# Manual steps                                                                #
+###############################################################################
+
+echo "> Some Mac OSX preferences must be set manually. Follow these steps..."
+
+echo "> System Preferences > Displays > Refresh rate > 60 Hertz"
 
 ###############################################################################
 # Kill affected applications                                                  #
