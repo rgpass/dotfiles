@@ -144,7 +144,6 @@ takeoff()
   gaa
   gc -m $MESSAGE
   gp -u origin $BRANCH
-  pd
 }
 
 c()
@@ -152,14 +151,12 @@ c()
   MESSAGE=$1
   gaa
   gc -m $MESSAGE
-  pd
 }
 
 gpuob()
 {
   BRANCH=$(git branch | sed -n -e 's/^\* \(.*\)/\1/p')
   gp -u origin $BRANCH
-  pd
 }
 
 alias gpuo="gpuob"
