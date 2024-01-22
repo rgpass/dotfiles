@@ -54,6 +54,13 @@ defaults write com.apple.commerce AutoUpdate -bool true
 defaults write com.apple.commerce AutoUpdateRestartRequired -bool false
 
 ###############################################################################
+# Browser                                                                     #
+###############################################################################
+
+# Set default browser to Arc
+open -a "Arc" --args --make-default-browser
+
+###############################################################################
 # Kill affected applications                                                  #
 ###############################################################################
 
