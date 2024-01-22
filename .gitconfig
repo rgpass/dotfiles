@@ -3,3 +3,9 @@
         email = rgpass@gmail.com
 [core]
         editor = subl -n -w
+[credential "https://github.com"]
+	helper = 
+	helper = !/opt/homebrew/bin/gh auth git-credential
+[credential "https://gist.github.com"]
+	helper = 
+	helper = !/opt/homebrew/bin/gh auth git-credential
