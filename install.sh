@@ -114,6 +114,27 @@ else
 fi
 
 ###############################################################################
+# Programming languages                                                       #
+###############################################################################
+
+if [ -f "${HOME}/.tool-versions" ]; then
+  echo "> .tool-versions already exists, skipping..."
+else
+  echo "> Symlinking .tool-versions..."
+  ln -s "${DOTFILES_ROOT}/.tool-versions" "${HOME}/.tool-versions"
+fi
+
+echo "> Installing latest NodeJS..."
+asdf plugin add nodejs
+asdf install nodejs latest
+asdf global nodejs latest
+
+echo "> Installing latest Ruby..."
+asdf plugin add ruby
+asdf install ruby latest
+asdf global ruby latest
+
+###############################################################################
 # Finish                                                                      #
 ###############################################################################
 
