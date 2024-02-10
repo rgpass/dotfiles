@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+source "./colors.sh"
+
 ###############################################################################
 # General UI/UX                                                               #
 ###############################################################################
@@ -82,24 +84,24 @@ open -a "Arc" --args --make-default-browser
 # Manual steps                                                                #
 ###############################################################################
 
-echo "> Some Mac OSX preferences must be set manually. Follow these steps..."
+yellow "> Some Mac OSX preferences must be set manually. Follow these steps..."
 
-echo "> System Preferences > Displays > Refresh rate > 60 Hertz"
-echo "> System Preferences > General > About > Name > appropriate name"
-echo "> System Preferences > Notifications > Messages > Show previews > Never"
-echo "> System Preferences > Notifications > Messages > Play sound for notification > off"
+yellow "> System Preferences > Displays > Refresh rate > 60 Hertz"
+yellow "> System Preferences > General > About > Name > appropriate name"
+yellow "> System Preferences > Notifications > Messages > Show previews > Never"
+yellow "> System Preferences > Notifications > Messages > Play sound for notification > off"
 
 ###############################################################################
 # Raycast                                                                     #
 ###############################################################################
 
-echo "> Steps to set up Raycast:"
-echo "> 1. Open Spotlight (Cmd+Space) and open Raycast"
-echo "> 2. Follow setup wizard"
-echo "> 3. System Preferences > Keyboard > Shortcuts > Spotlight > uncheck both"
-echo "> 4. Raycast (click icon in menu bar) > Settings > Raycast Hotkey > Cmd+Space"
-echo ">"
-echo "> After Raycast setup complete, configure snippets"
+yellow "> Steps to set up Raycast:"
+yellow "> 1. Open Spotlight (Cmd+Space) and open Raycast"
+yellow "> 2. Follow setup wizard"
+yellow "> 3. System Preferences > Keyboard > Shortcuts > Spotlight > uncheck both"
+yellow "> 4. Raycast (click icon in menu bar) > Settings > Raycast Hotkey > Cmd+Space"
+yellow ">"
+yellow "> After Raycast setup complete, configure snippets"
 
 ###############################################################################
 # Kill affected applications                                                  #
@@ -120,4 +122,4 @@ for app in "Activity Monitor" \
   "iCal"; do
   killall "${app}" &> /dev/null
 done
-echo "> System settings changed. Note that some of these changes require a logout/restart to take effect..."
+yellow "> System settings changed. Note that some of these changes require a logout/restart to take effect..."

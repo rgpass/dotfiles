@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+source "./colors.sh"
+
 ###############################################################################
 # References                                                                  #
 # KCD: https://github.com/kentcdodds/dotfiles/blob/main/.macos                #
@@ -27,7 +29,7 @@ DOTFILES_ROOT="${HOME}/scripts/dotfiles"
 # Standard directories                                                        #
 ###############################################################################
 
-echo "> Creating standard directories..."
+yellow "> Creating standard directories..."
 mkdir -p "${HOME}/companies"
 mkdir -p "${HOME}/projects"
 mkdir -p "${HOME}/sandbox"
@@ -38,10 +40,10 @@ mkdir -p "${HOME}/scripts"
 ###############################################################################
 
 if test ! $(which z); then
-  echo "> Installing z..."
+  yellow "> Installing z..."
   curl -o "${HOME}/scripts/z.sh" https://raw.githubusercontent.com/rupa/z/master/z.sh
 else
-  echo "> z already exists, skipping..."
+  yellow "> z already exists, skipping..."
 fi
 
 ###############################################################################
@@ -50,17 +52,17 @@ fi
 
 # Install Oh My Zsh if needed
 if [ -d "${HOME}/.oh-my-zsh" ]; then
-  echo "> Oh My Zsh already installed, skipping..."
+  yellow "> Oh My Zsh already installed, skipping..."
 else
-  echo "> Installing Oh My Zsh..."
+  yellow "> Installing Oh My Zsh..."
   sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 fi
 
 # Symlinking .zshrc
 if [ -f "${HOME}/.zshrc" ]; then
-  echo "> .zshrc already exists, skipping..."
+  yellow "> .zshrc already exists, skipping..."
 else
-  echo "> Symlinking .zshrc..."
+  yellow "> Symlinking .zshrc..."
   ln -s "${DOTFILES_ROOT}/.zshrc" "${HOME}/.zshrc"
 fi
 
@@ -70,17 +72,17 @@ fi
 
 # Install or update Homebrew
 if test ! $(which brew); then
-  echo "> Installing Homebrew..."
+  yellow "> Installing Homebrew..."
   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-  echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> $HOME/.zprofile
+  yellow 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> $HOME/.zprofile
   eval "$(/opt/homebrew/bin/brew shellenv)"
 else
-  echo "> Updating Homebrew..."
+  yellow "> Updating Homebrew..."
   brew update
 fi
 
 # Install Homebrew packages
-echo "> Installing Homebrew packages..."
+yellow "> Installing Homebrew packages..."
 brew bundle
 
 # Remove Brewfile versioning
@@ -90,7 +92,7 @@ rm Brewfile.lock.json
 # Mac OSX system preferences                                                  #
 ###############################################################################
 
-echo "> Setting Mac OSX system preferences..."
+yellow "> Setting Mac OSX system preferences..."
 sh system-preferences.sh
 
 ###############################################################################
@@ -99,17 +101,17 @@ sh system-preferences.sh
 
 # Symlinking .gitconfig
 if [ -f "${HOME}/.gitconfig" ]; then
-  echo "> .gitconfig already exists, skipping..."
+  yellow "> .gitconfig already exists, skipping..."
 else
-  echo "> Symlinking .gitconfig..."
+  yellow "> Symlinking .gitconfig..."
   ln -s "${DOTFILES_ROOT}/.gitconfig" "${HOME}/.gitconfig"
 fi
 
 # Check if logged into GitHub
 if gh auth status | grep -q "Logged in to github.com"; then
-  echo "> Already logged into GitHub, skipping..."
+  yellow "> Already logged into GitHub, skipping..."
 else
-  echo "> Not logged into GitHub, logging in..."
+  yellow "> Not logged into GitHub, logging in..."
   gh auth login
 fi
 
@@ -118,18 +120,18 @@ fi
 ###############################################################################
 
 if [ -f "${HOME}/.tool-versions" ]; then
-  echo "> .tool-versions already exists, skipping..."
+  yellow "> .tool-versions already exists, skipping..."
 else
-  echo "> Symlinking .tool-versions..."
+  yellow "> Symlinking .tool-versions..."
   ln -s "${DOTFILES_ROOT}/.tool-versions" "${HOME}/.tool-versions"
 fi
 
-echo "> Installing latest NodeJS..."
+yellow "> Installing latest NodeJS..."
 asdf plugin add nodejs
 asdf install nodejs latest
 asdf global nodejs latest
 
-echo "> Installing latest Ruby..."
+yellow "> Installing latest Ruby..."
 asdf plugin add ruby
 asdf install ruby latest
 asdf global ruby latest
@@ -138,5 +140,5 @@ asdf global ruby latest
 # Finish                                                                      #
 ###############################################################################
 
-echo "> Done!"
+yellow "> Done!"
 source "${HOME}/.zprofile"

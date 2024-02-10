@@ -4,11 +4,18 @@
 # $ curl https://raw.githubusercontent.com/rgpass/dotfiles/master/curl-entry.sh | bash
 
 ###############################################################################
+# Colors                                                                      #
+###############################################################################
+yellow() {
+  echo -e "\033[1;33m$1\033[0m"
+}
+
+###############################################################################
 # Install Xcode                                                               #
 ###############################################################################
 
-echo "> Installing Xcode (which installs git)..."
-echo "> If the script fails, rerun after Xcode is installed"
+yellow "> Installing Xcode (which installs git)..."
+yellow "> If the script fails, rerun after Xcode is installed"
 xcode-select --install
 
 ###############################################################################
@@ -17,7 +24,7 @@ xcode-select --install
 
 
 # Create and move into a scripts directory
-echo "> Make scripts directory and moving in..."
+yellow "> Make scripts directory and moving in..."
 mkdir -p "${HOME}/scripts"
 cd "${HOME}/scripts"
 
@@ -25,11 +32,11 @@ cd "${HOME}/scripts"
 # If dotfiles directory exists, cd into it and git pull
 # Otherwise, clone the project
 if [ -d "${HOME}/scripts/dotfiles" ]; then
-  echo "> dotfiles already exists, updating..."
+  yellow "> dotfiles already exists, updating..."
   cd dotfiles
   git pull
 else
-  echo "> Cloning dotfiles into ${PWD}..."
+  yellow "> Cloning dotfiles into ${PWD}..."
   git clone https://github.com/rgpass/dotfiles.git
   cd dotfiles
 fi
